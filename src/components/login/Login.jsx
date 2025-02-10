@@ -4,15 +4,15 @@ import styles from './Login.module.scss';
 
 function Login() {
   return (
-    <main className={styles['main-login']}>
-      <section className={styles['section-capa']}>
+    <main className={styles.mainLogin}>
+      <section className={styles.sectionCapa}>
         <img src={Capa} id='icapa' alt="Imagem de um navio cargueiro visto de frente" />
       </section>
 
-      <section className={styles['section-login']}>
+      <section className={styles.sectionLogin}>
         <img src={Logo} alt="Logo da Wilson sons" />
 
-        <div className={styles['div-textos']}>
+        <div className={styles.divTextos}>
           <h1>Boas vindas ao Novo Portal SISPAR</h1>
           <p>Sistema de Emissão de Boletos e Parcelamento</p>
         </div>
@@ -27,16 +27,16 @@ function Login() {
           </div>
           
           <div>
-            <a href="#" className={styles['a-esqueci-senha']}>Esqueci minha senha</a>
+            <a href="#" className={styles.EsqueciSenha}>Esqueci minha senha</a>
           </div>
           
-          <div className={styles['div-botoes']}>
+          <div className={styles.divBotoes}>
           
-          <button className={styles['botao-entrar']}> 
+          <button className={styles.botaoEntrar}> 
             Entrar
           </button>
           
-          <button className={styles['botao-criar-conta']}> 
+          <button className={styles.botaoCriarConta}> 
             Criar conta
           </button>
 

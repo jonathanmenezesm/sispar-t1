@@ -1,13 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Rancho&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.main-login {
+.mainLogin {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +8,7 @@
     border-radius: 10px;
     background-color: #ffff;
 
-    .section-capa{
+    .sectionCapa{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -30,7 +22,7 @@
         }
     }
 
-    .section-login {
+    .sectionLogin {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -39,7 +31,7 @@
         height: 100%;
         border-radius: 10px;
 
-        .div-textos {
+        .divTextos {
             font-family: Inter, sans-serif;
             display: flex;
             flex-direction: column;
@@ -62,16 +54,15 @@
 
         form {
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
             width: 100%;
-            margin-top: 1rem;
+            height: 30vh;
             
             input {
                 width: 19vw;
                 height: 5vh;
-                margin-bottom: 5px;
                 border: 1px solid #ccc;
                 border-radius: 7px;
             }
@@ -82,28 +73,25 @@
             }
 
             
-
-
-            .a-esqueci-senha {
+            .EsqueciSenha {
                 font-size: 1rem;
                 color: rgb(41, 41, 41);
                 text-decoration: none;
             }
-            .a-esqueci-senha:hover {
+            .EsqueciSenha:hover {
                 color: rgba(8, 68, 196, 1);
             }
 
-            .div-botoes {
+            .divBotoes {
                 display: flex;
-                justify-content: center;
+                justify-content: space-evenly;
                 align-items: center;
-                margin-top: 1rem;
-                width: 100%;
+                width: 30vh;    
+                height: 5vh;
 
-                .botao-entrar {
-                    width: 26%;
-                    margin: 1rem;
-                    padding: 0.8rem;
+                .botaoEntrar {
+                    width: 12vh;
+                    height: 100%;
                     border: none;
                     border-radius: 5px;
                     background-color:rgba(0, 26, 61, 1);
@@ -111,14 +99,13 @@
                     cursor: pointer;
                 }
 
-                .botao-entrar:hover {
+                .botaoEntrar:hover {
                     background-color: rgba(0, 26, 61, 0.8);
                 }
                 
-                .botao-criar-conta {
-                    width: 25%;
-                    margin: 1rem;
-                    padding: 0.8rem;
+                .botaoCriarConta {
+                    width: 12vh;
+                    height: 100%;
                     border: none;
                     border-radius: 5px;
                     background-color: rgba(0, 190, 221, 1);
@@ -126,7 +113,7 @@
                     cursor: pointer;
                 }
 
-                .botao-criar-conta:hover {
+                .botaoCriarConta:hover {
                     background-color: rgba(0, 190, 221, 0.8);
                 }
             }
