@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import Capa from "../../assets/Tela Login/tela-login.png";
 import Logo from "../../assets/Tela Login/logo-ws.png";
 import styles from './Login.module.scss';
 
 function Login() {
+
+const navigate = useNavigate();
+
+const IrParaReembolso = () => {
+  navigate('/reembolsos');
+}
+
   return (
     <main className={styles.mainLogin}>
       <section className={styles.sectionCapa}>
@@ -32,7 +40,7 @@ function Login() {
           
           <div className={styles.divBotoes}>
           
-          <button className={styles.botaoEntrar}> 
+          <button className={styles.botaoEntrar} onClick={IrParaReembolso}> 
             Entrar
           </button>
           
