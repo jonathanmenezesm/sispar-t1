@@ -67,8 +67,9 @@
                 border-radius: 7px;
             }
 
-            input:hover{
-                border: 1px solid rgba(8, 68, 196, 1);
+            input:hover, input:focus {
+                border: 0.8px solid #001a3d;
+                box-shadow: 0 0 0 0.19rem #cbd4e1;
                 cursor: pointer;
             }
 
