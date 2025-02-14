@@ -1,0 +1,112 @@
+header {
+    display: flex;
+    width: 10%;
+    height: 5vh;
+    justify-content: space-evenly;
+    align-items: center;
+    // border: solid 1px black;
+    
+}
+
+.mainReembolsos {  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    // border: solid 1px blue;
+    
+}
+
+.centralizar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    // border: solid springgreen 0.8px;
+    height: 65vh;
+    width: 40vw;
+    
+    .textoReembolso{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        // border: solid 1px black;
+    }
+}
+
+
+.containerCards {
+    display: flex;
+    border: solid 1px rgba(203, 212, 225, 1);
+    border-radius: 6px;
+    justify-content: space-around;
+    width: 40vw;
+    height: 40vh;
+    align-items: center;
+}
+
+article {
+    border: solid 1px rgba(203, 212, 225, 1);
+    border-radius: 6px;
+    width: 12vw;
+    height: 18vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerStatus{
+    width: 40vw;
+    height: 10vh;
+    border: solid 1px rgba(203, 212, 225, 1);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    div {
+        // border: solid orange;
+        display: flex;
+        width: 20%;
+        height: 5vh;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .img1{
+        background: rgba(0, 190, 221, 1);
+        border-radius: 6px;
+        padding: 6px;
+    }
+    
+    .img2{
+        background: rgba(229, 103, 0, 1);
+        border-radius: 6px;
+        padding: 6px;
+    }
+    
+    .img3{
+        background: rgba(0, 122, 106, 1);
+        border-radius: 6px;
+        padding: 6px;
+    }
+    
+    .img4{
+        background: rgba(166, 11, 47, 1);
+        border-radius: 6px;
+        padding: 6px;
+    }
+
+    
+}
+
+.containerSistema {
+    display: flex;
+    // border: solid red;
+    width: 12vw;
+    justify-content: space-evenly;
+    align-items: center;
+}
