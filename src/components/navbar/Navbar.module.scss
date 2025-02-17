@@ -1,0 +1,44 @@
+.navBarEstilo{
+    padding: 1vh 0 1vh;
+    height: 100vh;
+    width: 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+    .FecharEAbrir {
+        
+        border-radius: 6px;
+        width: 60%;
+        height: 5vh;
+        background-color: #63758D;
+        
+    }
+    
+    section{
+        // border: solid red;
+        height: 45vh;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+        button {
+            background-color: #0844C4;
+            width: 100%;
+            height: 5vh;
+            border-radius: 6px;
+        }
+        
+        
+    }
+    .BotaoSair {
+        border-radius: 6px;
+        width: 60%;
+        height: 5vh;
+        background-color: #63758D;
+    }
+}
+
