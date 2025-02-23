@@ -1,4 +1,4 @@
-.navBarEstilo{
+.navBarEstilo {
     padding: 1vh 0 1vh;
     height: 100vh;
     width: 5%;
@@ -8,15 +8,20 @@
     align-items: center;
 
     .FecharEAbrir {
-        
+        cursor: pointer;
         border-radius: 6px;
+        border: 0.8px solid;
         width: 60%;
         height: 5vh;
         background-color: #63758D;
-        
+
     }
-    
-    section{
+
+    .FecharEAbrir:hover {
+        background-color: rgb(79, 91, 105);
+    }
+
+    section {
         // border: solid red;
         height: 45vh;
         width: 60%;
@@ -24,21 +29,34 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        
+
         button {
+            cursor: pointer;
             background-color: #0844C4;
             width: 100%;
             height: 5vh;
             border-radius: 6px;
+            border: 0.8px solid;
+            
+        }
+        
+        button:hover {
+            background-color: rgb(7, 61, 176, 1);
         }
         
         
     }
+    
     .BotaoSair {
+        cursor: pointer;
         border-radius: 6px;
         width: 60%;
         height: 5vh;
         background-color: #63758D;
+        border: 0.8px solid;
+    }
+
+    .BotaoSair:hover {
+        background-color: rgb(79, 91, 105);
     }
 }
-

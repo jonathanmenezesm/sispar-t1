@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Historico from "../../assets/Header/bHistorico.png";
-import Home from "../../assets/Header/bHome.png";
+import Home from "../../assets/Dashboard/bnHome.png";
 import Pesquisa from "../../assets/Header/bPesquisa.png";
 import Reembolso from "../../assets/Header/bReembolso.png";
 import Sair from "../../assets/Header/bSair.png";
@@ -14,33 +14,33 @@ function Navbar() {
         <>
             <nav className={styles.navBarEstilo}>
                     <button className={styles.FecharEAbrir} onClick={ ()=>{navigate("/")} }>
-                        <img src={Fechar} alt="Botão abrir e fechar" />
+                        <img src={Fechar} alt="imagem do Botão de abrir e fechar menun de navegação" />
                     </button>
                    
                 <section>
                    
-                    <img src={Perfil} alt="imagem de Perfil" />
+                    <img src={Perfil} alt="imagem do botão de Perfil" />
         
-                    <button>
-                        <img src={Home} alt="Botão Pagina inicial" />
+                    <button onClick={ ()=>{navigate("/reembolsos")}}>
+                        <img src={Home} alt="imagem do botão de Pagina inicial" />
+                    </button>
+        
+                    <button onClick={ ()=> {navigate('/solicitacao')}}>
+                        <img src={Reembolso} alt="imagem do botão de Solicitação de Reembolso" />
                     </button>
         
                     <button>
-                        <img src={Reembolso} alt="Solicitação de Reembolso" />
+                        <img src={Pesquisa} alt="imagem do botão de pesquisar" />
                     </button>
         
                     <button>
-                        <img src={Pesquisa} alt="Botão de pesquisar" />
-                    </button>
-        
-                    <button>
-                        <img src={Historico} alt="Botão de historico" />
+                        <img src={Historico} alt="imagem do botão de historico" />
                     </button>
         
                 </section>
 
-                    <button className={styles.BotaoSair}>
-                        <img src={Sair} alt="Botão de sair" />
+                    <button className={styles.BotaoSair} onClick={ ()=>{navigate("/")}}>
+                        <img src={Sair} alt="imagem do botão de sair" />
                     </button>
 
             </nav>

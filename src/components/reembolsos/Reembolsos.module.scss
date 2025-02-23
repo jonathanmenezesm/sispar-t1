@@ -3,7 +3,7 @@
 }
 
 .containerMain {
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@
     height: 100vh;
     width: 100vw;
     // border: solid 1px black;
-    
+
     .boxHeader {
         display: flex;
         justify-content: start;
@@ -27,8 +27,8 @@
             justify-content: start;
             align-items: center;
             // border: solid 1px black;
-            
-            .HeaderObjetos{
+
+            .HeaderObjetos {
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
@@ -38,17 +38,17 @@
             }
         }
     }
-        
+
 }
 
-.mainReembolsos {  
+.mainReembolsos {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 95vh;
     // border: solid 1px blue;
-    
+
 }
 
 .centralizar {
@@ -59,8 +59,8 @@
     // border: solid springgreen 0.8px;
     height: 65vh;
     width: 40vw;
-    
-    .textoReembolso{
+
+    .textoReembolso {
         display: flex;
         flex-direction: column;
         align-items: start;
@@ -89,9 +89,24 @@ article {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
-.containerStatus{
+.CardReembolso:hover {
+    cursor: pointer;
+    background-color: rgba(241, 244, 249, 1);
+}
+.CardAnalise:hover {
+    cursor: pointer;
+    background-color: rgba(241, 244, 249, 1);
+}
+.CardHistorico:hover {
+    cursor: pointer;
+    background-color: rgba(241, 244, 249, 1);
+}
+
+
+.containerStatus {
     width: 40vw;
     height: 10vh;
     border: solid 1px rgba(203, 212, 225, 1);
@@ -99,7 +114,7 @@ article {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
+
     div {
         // border: solid orange;
         display: flex;
@@ -109,31 +124,31 @@ article {
         justify-content: space-around;
     }
 
-    .img1{
+    .img1 {
         background: rgba(0, 190, 221, 1);
         border-radius: 6px;
         padding: 6px;
     }
-    
-    .img2{
+
+    .img2 {
         background: rgba(229, 103, 0, 1);
         border-radius: 6px;
         padding: 6px;
     }
-    
-    .img3{
+
+    .img3 {
         background: rgba(0, 122, 106, 1);
         border-radius: 6px;
         padding: 6px;
     }
-    
-    .img4{
+
+    .img4 {
         background: rgba(166, 11, 47, 1);
         border-radius: 6px;
         padding: 6px;
     }
 
-    
+
 }
 
 .containerSistema {

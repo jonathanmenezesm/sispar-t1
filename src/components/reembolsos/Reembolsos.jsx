@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./Reembolsos.module.scss";
 import Home from "../../assets/Header/bHome.png";
 import Seta from "../../assets/Dashboard/Vector.png";
@@ -13,6 +14,13 @@ import SolicitarReembolso from "../../assets/Dashboard/Reembolso.png";
 import Navbar from "../navbar/Navbar.jsx";
 
 function Reembolsos() {
+
+  const navigate = useNavigate();
+  const IrParaSolicitacao = () => {
+    navigate('/solicitacao');  
+    
+  }
+
   return (
     <div className={styles.layout}>
       <Navbar />
@@ -34,21 +42,22 @@ function Reembolsos() {
             <p>Solicite novos pedidos de reembolso, visualize solicitações em análise e todo o histórico.</p>
           </div>
           <section className={styles.containerCards}>
-            <article>
+            <article className={styles.CardReembolso} onClick={IrParaSolicitacao}>
               <img src={SolicitarReembolso} alt="icone para solicitação de reembolso" />
               <h3> Solicitar Reembolso </h3>
             </article>
         
-            <article>
+            <article className={styles.CardAnalise}>
               <img src={Analises} alt="icone para analises" />
               <h3> Verificar análises </h3>
             </article>
         
-            <article>
+            <article className={styles.CardHistorico}>
               <img src={SolicitarHistorico} alt="Icone de historico" />
               <h3> Histórico </h3>
             </article>
           </section>
+          
           <section className={styles.containerStatus}>
             <div>
               <img className={styles.img1} src={NumeroSolicitados} alt="" />
