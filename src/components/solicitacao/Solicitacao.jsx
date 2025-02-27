@@ -248,22 +248,25 @@ function Solicitacao() {
                     <div className={styles.inputTotais}>
                         <div className={styles.TotalFaturado}>
                             <label htmlFor="">Total Faturado</label>
-                            <input type="text" name="" id="" />
+                            <input type="text" name="" id="" placeholder="0.00"/>
                         </div>
 
                         <div className={styles.TotalDespesa}>
                             <label htmlFor="">Total Despesa</label>
-                            <input type="text" name="" id="" />
+                            <input type="text" name="" id="" placeholder="0.00"/>
                         </div>
                     </div>
 
-                    <button>
-                        <img src={Check} alt="" />
-                    </button>
-
-                    <button>
-                        <img src={Delete} alt="" />
-                    </button>
+                    <div className={styles.FooterBotoes}>
+                        <button className={styles.EnviarParaAnalise}>
+                            <img src={Check} alt="" />
+                            <p>Enviar para Análise</p>
+                        </button>
+                        <button className={styles.CancelarSolicitacao}>
+                            <img src={Delete} alt="" />
+                            <p>Cancelar Solicitação</p>
+                        </button>
+                    </div>
 
                 </footer>
 
