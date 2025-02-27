@@ -5,7 +5,13 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    margin-left: 10px;
+
+    transition: width .4s ease;
+    // border-right: 0.3px solid #63758D;
+
+    
 
     .FecharEAbrir {
         cursor: pointer;
@@ -14,22 +20,40 @@
         width: 60%;
         height: 5vh;
         background-color: #63758D;
-
+        transition: none;
     }
-
+    
     .FecharEAbrir:hover {
         background-color: rgb(79, 91, 105);
+        transition: none;
     }
-
+    
     section {
-        // border: solid red;
         height: 45vh;
         width: 60%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        align-items: start;
+        // border: 1px solid black;
+        // overflow: hidden;
+        transition: none;
+        
+        .DivBotaoMenuAberto {
+            display: flex;
+            // border: 1px solid purple;
+            width: 100%;
+            transition: none;
 
+            button {
+                transition: none;
+            }
+            p{
+                display: none;
+            }
+            
+        }
+        
         button {
             cursor: pointer;
             background-color: #0844C4;
@@ -37,14 +61,13 @@
             height: 5vh;
             border-radius: 6px;
             border: 0.8px solid;
-            
+            transition: none;
         }
         
         button:hover {
             background-color: rgb(7, 61, 176, 1);
+            transition: none;
         }
-        
-        
     }
     
     .BotaoSair {
@@ -54,9 +77,97 @@
         height: 5vh;
         background-color: #63758D;
         border: 0.8px solid;
+        transition: none;
+    }
+    
+    .BotaoSair:hover {
+        background-color: rgb(79, 91, 105);
+        transition: none;
+    }
+}
+
+// Adicionamos estilos para aberto e fechado
+.aberto {
+    width: 15%; // Quando estiver aberto
+    border-right: 1px solid #63758D;
+    transform: .4s ease;
+    overflow: hidden;
+    
+    .FecharEAbrir {
+        cursor: pointer;
+        border-radius: 6px;
+        border: 0.8px solid;
+        width: 22%;
+        height: 5vh;
+        background-color: #63758D;
+    }
+
+    .FecharEAbrir:hover {
+        background-color: rgb(79, 91, 105);
+    }
+
+    section {
+        height: 45vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        // border: 1px solid black;
+
+        .DivBotaoMenuAberto {
+            display: flex;
+            width: 100%;
+            // border: 1px solid purple;
+            gap: 10px;
+
+            p{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-weight: 700;
+            }
+
+            button {
+                width: 20%;
+                // border: 1px solid greenyellow;
+            }
+        }
+        
+        .imgPerfil {
+            position: absolute;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #0844C4;
+            width: 20%;
+            height: 5vh;
+            border-radius: 6px;
+            border: 0.8px solid;
+        }
+
+        button:hover {
+            background-color: rgb(7, 61, 176, 1);
+        }
+    }
+
+    .BotaoSair {
+        cursor: pointer;
+        border-radius: 6px;
+        width: 22%;
+        height: 5vh;
+        background-color: #63758D;
+        border: 0.8px solid;
     }
 
     .BotaoSair:hover {
         background-color: rgb(79, 91, 105);
     }
+}
+
+.fechado {
+    width: 5%; // Quando estiver fechado
+    transition: width 0.2s ease;
 }
