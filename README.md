@@ -1,8 +1,17 @@
-# React + Vite
+Projeto SISPAR, é um sistema de reembolsos desenvolvido em React.js. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O desafio feito submetido a um prazo, relativamente curto, tendo em vista que era meu primeiro contato com a tecnologia. Porém, como já tenho um certo domínio da estruturação de sites, só tive que me adaptar a sintaxe do React, que por sinal é simples. Auxiliado pelo Vite, o desenvolvimento se tornou mais simples e rápido.
+Algumas funcionalidades implementadas:
 
-Currently, two official plugins are available:
+✅ Tela de Login com redirecionamento para o dashboard
+✅ Tela de Reembolsos com acesso a solicitações anteriores
+✅ Formulário de Solicitação de Reembolsos com armazenamento temporário dos dados
+✅ NavBar com navegação intuitiva e funcionalidade de menu hambúrguer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+As tecnologias utilizadas até o momento:
+•	HTML
+•	SCSS
+•	React.js + Vite
+•	React Router
+
+Agora estou focado em aprender o Back-End, para tornar a aplicação completa!
