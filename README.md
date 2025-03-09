@@ -4,8 +4,11 @@ O desafio feito submetido a um prazo, relativamente curto, tendo em vista que er
 Algumas funcionalidades implementadas:
 
 ✅ Tela de Login com redirecionamento para o dashboard
+
 ✅ Tela de Reembolsos com acesso a solicitações anteriores
+
 ✅ Formulário de Solicitação de Reembolsos com armazenamento temporário dos dados
+
 ✅ NavBar com navegação intuitiva e funcionalidade de menu hambúrguer
 
 As tecnologias utilizadas até o momento:
