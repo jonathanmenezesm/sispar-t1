@@ -1,4 +1,4 @@
-import Navbar from "../navbar/navbar.jsx";
+import NavBar from "../navbar/navbar.jsx"
 import styles from "./Solicitacao.module.scss"
 import Home from "../../assets/Header/bHome.png"
 import Seta from "../../assets/Dashboard/Vector.png"
@@ -199,8 +199,8 @@ function Solicitacao() {
                                 </tr>
                                 <tr>
                                     <td> <img src={Lixeira} alt="ícone da lixeira" /> </td>
-                                    <td> Bolsonaro da Silva </td>
-                                    <td> PL </td>
+                                    <td> Zezinho da Silva </td>
+                                    <td> ADM </td>
                                     <td> 345</td>
                                     <td> 15/07 </td>
                                     <td> <img src={Motivo} alt="ícone do motivo" /> </td>
@@ -217,8 +217,8 @@ function Solicitacao() {
                                 </tr>
                                 <tr>
                                     <td> <img src={Lixeira} alt="ícone da lixeira" /> </td>
-                                    <td> Lulinha da Silva </td>
-                                    <td> PGR </td>
+                                    <td> Mariazinha da Silva </td>
+                                    <td> RH </td>
                                     <td> 345</td>
                                     <td> 10/07 </td>
                                     <td> <img src={Motivo} alt="ícone do motivo" /></td>

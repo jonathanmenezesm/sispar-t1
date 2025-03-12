@@ -9,7 +9,7 @@ import Perfil from "../../assets/Header/bAvatar.png";
 import Fechar from "../../assets/Header/bFecharHeader.png";
 import styles from './Navbar.module.scss';
 
-function Navbar() {
+function NavBar() {
     //useNavigate se refere as rotas de navegação nas páginas.
   const navigate = useNavigate();
   //useState para trocar de um estado para outro. Neste caso usado para alterar estilo da navbar.
@@ -68,4 +68,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavBar;
