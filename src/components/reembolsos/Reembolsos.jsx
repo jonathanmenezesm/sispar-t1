@@ -11,7 +11,7 @@ import Sistema from "../../assets/Dashboard/SistemaAtualizado.png";
 import SolicitarHistorico from "../../assets/Dashboard/SolicitarHistorico.png";
 import SolicitarReembolso from "../../assets/Dashboard/Reembolso.png";
 // importanto o componente navBar
-import Navbar from "../navbar/Navbar.jsx";
+import Navbar from "../navbar/navbar.jsx";
 
 function Reembolsos() {
 
