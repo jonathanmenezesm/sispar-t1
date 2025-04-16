@@ -26,6 +26,7 @@
     .FecharEAbrir:hover {
         background-color: rgb(79, 91, 105);
         transition: none;
+        z-index: 10;
     }
     
     section {
@@ -88,10 +89,14 @@
 
 // Adicionamos estilos para aberto e fechado
 .aberto {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 15%; // Quando estiver aberto
     border-right: 1px solid #63758D;
     // transform: .4s ease;
     overflow: hidden;
+    z-index: 20;
     
     .FecharEAbrir {
         cursor: pointer;
@@ -168,6 +173,6 @@
 }
 
 .fechado {
-    width: 5%; // Quando estiver fechado
+    // width: 5%; // Quando estiver fechado
     // transition: width 0.2s ease;
 }

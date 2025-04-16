@@ -8,8 +8,62 @@ import Salvar from "../../assets/Solicitacao/+.png"
 import Deletar from "../../assets/Solicitacao/deletar.png"
 import Check from "../../assets/Solicitacao/check.png"
 import Delete from "../../assets/Solicitacao/x.png"
+import { useState } from "react"
 
 function Solicitacao() {
+
+    // const [colaborador, setColaborador] = useState("");
+
+
+    //FUNÇÃO PARA LIMPAR OS CAMPOS DO FORMULÁRIO (INPUTS)
+
+    // const limparCampos = () => {
+    //     setColaborador(""),
+    //     setEmpresa(""),
+    //     setPrestacaoContas(""),
+    //     setDescricaoMotivo(""),
+    //     setData(""),
+    //     setTipoDespesa(""),
+    //     setCentroCusto(""),
+    //     setOrdemInterna(""),
+    //     setDivisao(""),
+    //     setPep(""),
+    //     setMoeda(""),
+    //     setDistancia(""),
+    //     setValorKm(""),
+    //     setValorFaturado(""),
+    //     setDespesa("")
+    // }
+
+    //CRIAR UMA FUNÇÃO PARA ENVIAR OS DADOS PARA O BANCO DE DADOS
+
+    // const [foiEnviado, setFoiEnviado] = useState(false); //criando estado
+
+    // const enviarParaAnalise = async () => {
+    //     try{// aqui colocamos o que queremos 'tentar' fazer
+
+    //     const response = await Api.post("/refunds/new", dadosReembolso); // aqui chamamos a API e enviamos os dados do reembolso
+
+    //     console.log("Resposta da API", response);
+    //     alert("Reembolso solicitado com sucesso!")
+    //     setFoiEnviado(true)
+
+    //     } catch(error){
+    //         console.log("Erro ao enviar reembolso", error);
+    //         alert("Erro ao solicitar reembolso, tente novamente mais tarde.")
+    //     }
+
+    const [abrirModal, setAbrirModal] = useState(false)
+
+    function abrirModalConfirmacao() {
+        setAbrirModal(true)
+    }
+
+    function fecharModalConfirmacao() {
+        setAbrirModal(false)
+    }
+    
+
     return (
 
         <div className={styles.layoutSolicitacaoReembolsos}>
@@ -139,7 +193,7 @@ function Solicitacao() {
                                 <button className={styles.BotaoSalvar}>
                                     <img src={Salvar} alt="Botão para salvar o preenchimento do formulário" /> Salvar
                                 </button>
-                                <button className={styles.BotaoApagar}>
+                                <button type="button" className={styles.BotaoApagar} onClick={abrirModalConfirmacao}>
                                     <img src={Deletar} alt="Botão para limpar o preenchimento do formulário" />
                                 </button>
                             </div>
@@ -248,12 +302,12 @@ function Solicitacao() {
                     <div className={styles.inputTotais}>
                         <div className={styles.TotalFaturado}>
                             <label htmlFor="">Total Faturado</label>
-                            <input type="text" name="" id="" placeholder="0.00"/>
+                            <input type="text" name="" id="" placeholder="0.00" />
                         </div>
 
                         <div className={styles.TotalDespesa}>
                             <label htmlFor="">Total Despesa</label>
-                            <input type="text" name="" id="" placeholder="0.00"/>
+                            <input type="text" name="" id="" placeholder="0.00" />
                         </div>
                     </div>
 
@@ -272,7 +326,26 @@ function Solicitacao() {
 
             </div>
 
-        </div>
+            {abrirModal && (
+                <div className={styles.containerModalExcluir}>
+                <div className={styles.modalExcluir}>
+                <h2>Deseja realmente excluir os dados dessa linha?</h2>
+                    <div className={styles.Botoes}>
+                        <button>Continuar editando</button>
+                        <button type="button" onClick={fecharModalConfirmacao}>Sim, excluir</button>
+
+                    </div>
+
+                </div>
+                </div>
+            )}
+            </div>
+
+        
+
+        
+
+
 
 
     )
