@@ -1,23 +1,20 @@
 .navBarEstilo {
     padding: 1vh 0 1vh;
     height: 100vh;
-    width: 5%;
+    width: 5vw;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 10px;
-
-    // transition: width .4s ease;
-    // border-right: 0.3px solid #63758D;
-
+    transition: width .4s ease;
     
-
+    
     .FecharEAbrir {
         cursor: pointer;
         border-radius: 6px;
         border: 0.8px solid;
-        width: 60%;
+        width: 3vw;
         height: 5vh;
         background-color: #63758D;
         transition: none;
@@ -31,14 +28,14 @@
     
     section {
         height: 45vh;
-        width: 60%;
+        width: 3vw;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: start;
-        // border: 1px solid black;
-        // overflow: hidden;
+        overflow: hidden;
         transition: none;
+        // border: solid 0.3px black;
         
         .DivBotaoMenuAberto {
             display: flex;
@@ -58,7 +55,7 @@
         button {
             cursor: pointer;
             background-color: #0844C4;
-            width: 100%;
+            width: 3vw;
             height: 5vh;
             border-radius: 6px;
             border: 0.8px solid;
@@ -74,11 +71,10 @@
     .BotaoSair {
         cursor: pointer;
         border-radius: 6px;
-        width: 60%;
+        width: 3vw;
         height: 5vh;
         background-color: #63758D;
         border: 0.8px solid;
-        transition: none;
     }
     
     .BotaoSair:hover {
@@ -87,92 +83,28 @@
     }
 }
 
-// Adicionamos estilos para aberto e fechado
+//estilos para aberto e fechado
 .aberto {
     position: absolute;
     top: 0;
     left: 0;
     width: 15%; // Quando estiver aberto
-    border-right: 1px solid #63758D;
-    // transform: .4s ease;
     overflow: hidden;
-    z-index: 20;
+    z-index: 10;
+    border-right: 0.3px solid #63758D;
+    background-color: rgba(255, 255, 255, 0.068); // Fundo escurecido com opacidade
+    backdrop-filter: blur(1.5px); // Efeito de desfoque no fundo
+    transition: width 0.4s ease, border-right-color 0.4s ease, background-color 0.4s ease; // Transição suave
+
     
-    .FecharEAbrir {
-        cursor: pointer;
-        border-radius: 6px;
-        border: 0.8px solid;
-        width: 22%;
-        height: 5vh;
-        background-color: #63758D;
-    }
-
-    .FecharEAbrir:hover {
-        background-color: rgb(79, 91, 105);
-    }
-
-    section {
-        height: 45vh;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: start;
-        // border: 1px solid black;
-
-        .DivBotaoMenuAberto {
-            display: flex;
-            width: 100%;
-            // border: 1px solid purple;
-            gap: 10px;
-
-            p{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                font-weight: 700;
-            }
-
-            button {
-                width: 20%;
-                // border: 1px solid greenyellow;
-            }
-        }
-        
-        .imgPerfil {
-            position: absolute;
-        }
-
-        button {
-            cursor: pointer;
-            background-color: #0844C4;
-            width: 20%;
-            height: 5vh;
-            border-radius: 6px;
-            border: 0.8px solid;
-        }
-
-        button:hover {
-            background-color: rgb(7, 61, 176, 1);
-        }
-    }
-
-    .BotaoSair {
-        cursor: pointer;
-        border-radius: 6px;
-        width: 22%;
-        height: 5vh;
-        background-color: #63758D;
-        border: 0.8px solid;
-    }
-
-    .BotaoSair:hover {
-        background-color: rgb(79, 91, 105);
-    }
+    
+    
 }
 
 .fechado {
-    // width: 5%; // Quando estiver fechado
-    // transition: width 0.2s ease;
+    position: absolute;
+    width: 5vw; // Quando estiver fechado
+    transition: width 0.4s ease, border-right-color 0.4s ease; // Transição para a cor da borda
+    border-right: 0.3px solid transparent; // Borda invisível ao fechar
 }
+
