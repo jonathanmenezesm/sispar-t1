@@ -5,12 +5,12 @@ import Home from "../../assets/Dashboard/bnHome.png";
 import Pesquisa from "../../assets/Header/bPesquisa.png";
 import Reembolso from "../../assets/Header/bReembolso.png";
 import Sair from "../../assets/Header/bSair.png";
-import Perfil from "../../assets/Header/bAvatar.png";
+import Perfil from "../../assets/Header/linkedin-profile.png";
 import Fechar from "../../assets/Header/bFecharHeader.png";
 import styles from './Navbar.module.scss';
 
 function NavBar() {
-    //useNavigate se refere as rotas de navegação nas páginas.
+  //useNavigate se refere as rotas de navegação nas páginas.
   const navigate = useNavigate();
   //useState para trocar de um estado para outro. Neste caso usado para alterar estilo da navbar.
   const [isOpen, setIsOpen] = useState(false); // Estado para abrir/fechar a sidebar
@@ -22,47 +22,46 @@ function NavBar() {
     <>
       <nav className={`${styles.navBarEstilo} ${isOpen ? styles.aberto : styles.fechado}`}>
         {/* Foi trocado a classe fixa "styles.navBarEstilo" por uma template string onde adicionei classes condicionais. Representado pela estrutura (condição ? valor_se_verdadeiro : valor_se_falso;) */}
-        <button className={styles.FecharEAbrir} onClick={toggleSidebar}>
-          <img className={styles.imgPerfil} src={Fechar} alt="Botão de abrir e fechar menu de navegação" />
-        </button>
+        <div className={styles.botoesDeNavegacao}>
 
-        <section>
-          <img src={Perfil} alt="Botão de Perfil" />
+          <button className={styles.FecharEAbrir} onClick={toggleSidebar}>
+            <img className={styles.imgPerfil} src={Fechar} alt="Botão de abrir e fechar menu de navegação" />
+          </button>
 
-          <div className={styles.DivBotaoMenuAberto}>
+          <section>
+            <div className={styles.avatarPerfil}>
+              <img src={Perfil} alt="Imagem miniatura de Perfil" />
+              <span>Jonathan Moura</span>
+            </div>
+            <div className={styles.divBotaoNavegavel}>
               <button onClick={() => navigate("/reembolsos")}>
                 <img src={Home} alt="Botão de Página Inicial" />
               </button>
-                <p>Início</p>
-          </div>
-          
-
-          <div className={styles.DivBotaoMenuAberto}>
+              <span className={styles.textoBotao}>Início</span>
+            </div>
+            <div className={styles.divBotaoNavegavel}>
               <button onClick={() => navigate('/solicitacao')}>
                 <img src={Reembolso} alt="Botão de Solicitação de Reembolso" />
               </button>
-              <p>Reembolsos</p>
-          </div>
-
-          <div className={styles.DivBotaoMenuAberto}>
+              <span className={styles.textoBotao}>Reembolso</span>
+            </div>
+            <div className={styles.divBotaoNavegavel}>
               <button>
                 <img src={Pesquisa} alt="Botão de pesquisar" />
               </button>
-              <p>Análises</p>
-          </div>
-
-          <div className={styles.DivBotaoMenuAberto}>
+              <span className={styles.textoBotao}>Análise</span>
+            </div>
+            <div className={styles.divBotaoNavegavel}>
               <button>
                 <img src={Historico} alt="Botão de histórico" />
               </button>
-                <p>Histórico</p>
-          </div>
-
-        </section>
-
-        <button className={styles.BotaoSair} onClick={() => navigate("/")}>
-          <img src={Sair} alt="Botão de sair" />
-        </button>
+              <span className={styles.textoBotao}>Histórico</span>
+            </div>
+          </section>
+          <button className={styles.BotaoSair} onClick={() => navigate("/")}>
+            <img src={Sair} alt="Botão de sair" />
+          </button>
+        </div>
       </nav>
     </>
   );

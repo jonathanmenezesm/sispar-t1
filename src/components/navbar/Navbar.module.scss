@@ -1,13 +1,24 @@
 .navBarEstilo {
-    padding: 1vh 0 1vh;
-    height: 100vh;
-    width: 5vw;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 10px;
+    padding: 1vh 0;
+    height: 100vh;
+    width: 5vw;
     transition: width .4s ease;
+    position: absolute;
+    overflow: hidden;
+
+    .botoesDeNavegacao {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 4vw;
+        height: 100vh;
+    
+    }
     
     
     .FecharEAbrir {
@@ -27,29 +38,21 @@
     }
     
     section {
+        display: flex;
         height: 45vh;
         width: 3vw;
-        display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: start;
-        overflow: hidden;
+        // overflow: hidden;
         transition: none;
         // border: solid 0.3px black;
-        
-        .DivBotaoMenuAberto {
-            display: flex;
-            // border: 1px solid purple;
-            width: 100%;
-            transition: none;
+    
 
-            button {
-                transition: none;
-            }
-            p{
-                display: none;
-            }
-            
+        .divBotaoNavegavel {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; // Espaço entre o ícone e o texto
         }
         
         button {
@@ -92,19 +95,66 @@
     overflow: hidden;
     z-index: 10;
     border-right: 0.3px solid #63758D;
-    background-color: rgba(255, 255, 255, 0.068); // Fundo escurecido com opacidade
+    background-color: rgba(255, 255, 255, 0.651); // Fundo escurecido com opacidade
     backdrop-filter: blur(1.5px); // Efeito de desfoque no fundo
-    transition: width 0.4s ease, border-right-color 0.4s ease, background-color 0.4s ease; // Transição suave
+    transition: width 0.5s ease, border-right-color 0.5s ease, background-color 0.5s ease; // Transição suave
 
-    
-    
-    
+    .textoBotao {
+        display: inline; // Exibe o texto quando a navbar está aberta
+        opacity: 1; // Torna o texto visível
+    }
+
+    .avatarPerfil{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 5vw;
+
+        img {
+            width: 3vw; // Largura da imagem do avatar
+            height: 5vh; // Altura da imagem do avatar
+            border-radius: 50%; // Bordas arredondadas para o avatar
+            border: #464646 solid 0.3px; // Borda do avatar
+            margin-bottom: 3px; // Espaço entre o avatar e o texto
+        }
+
+
+        span {
+            font-family: inter;
+            color: #000; // Cor do texto
+            text-align: center; // Centraliza o texto
+            font-size: 0.9rem; // Tamanho da fonte
+        }
+        
+    }
+
+
 }
 
 .fechado {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 5vw; // Quando estiver fechado
-    transition: width 0.4s ease, border-right-color 0.4s ease; // Transição para a cor da borda
+    transition: width 0.5s ease, border-right-color 0.5s ease; // Transição para a cor da borda
     border-right: 0.3px solid transparent; // Borda invisível ao fechar
+
+    span {
+        display: none; // Oculta o texto quando a navbar está fechada
+        opacity: 0; // Garante que o texto fique invisível
+        font-family: inter;
+    }
+
+    .avatarPerfil{
+        img {
+            width: 3vw; // Largura da imagem do avatar
+            height: 5vh; // Altura da imagem do avatar
+            border-radius: 50%; // Bordas arredondadas para o avatar
+            border: #000 solid 0.3px; // Borda do avatar
+        }
+    }
 }
+
+
 
