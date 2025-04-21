@@ -91,15 +91,33 @@ function Solicitacao() {
   //         alert("Erro ao solicitar reembolso, tente novamente mais tarde.")
   //     }
 
+  // função para excluir linha na tabela
+  const [indiceExcluir, setIndiceExcluir] = useState(null); // Índice da linha a ser excluída
+
+  function abrirModalConfirmacao(index) {
+    setIndiceExcluir(index); // Define o índice da linha a ser excluída
+    setAbrirModal(true); // Abre o modal
+  }
+
+  function excluirLinha() {
+    const novosDados = dadosReembolso.filter((_, index) => index !== indiceExcluir); // Remove a linha pelo índice
+    setDadosReembolso(novosDados); // Atualiza o estado com os dados restantes
+    setAbrirModal(false); // Fecha o modal
+    setIndiceExcluir(null); // Reseta o índice
+  }
+
+  // Modal de confirmação de exclusão
   const [abrirModal, setAbrirModal] = useState(false);
 
-  function abrirModalConfirmacao() {
-    setAbrirModal(true);
-  }
+  // function abrirModalConfirmacao() {
+  //   setAbrirModal(true);
+  // }
 
   function fecharModalConfirmacao() {
     setAbrirModal(false);
   }
+// fim do modal de confirmação de exclusão
+
   return (
     <div className={styles.layoutSolicitacaoReembolsos}>
       <NavBar />
@@ -326,7 +344,6 @@ function Solicitacao() {
                 <button
                   type="button"
                   className={styles.BotaoApagar}
-                  onClick={abrirModalConfirmacao}
                 >
                   <img
                     src={Deletar}
@@ -362,38 +379,54 @@ function Solicitacao() {
             <tbody>
               {dadosReembolso.map((item, index) => (
                 <tr key={index}>
-                  <td>
+                  <td className={`${styles.iconeLixeira} ${abrirModal ? styles.lixeiraAtiva : ''}`}>
                     <img
                       src={Lixeira}
-                      alt="Ícone de lixeira"
-                      className={styles.iconeLixeira}
+                      alt="Ícone de lixeira para excluir a linha"
+                      className={styles.lixeira}
+                      onClick={() => abrirModalConfirmacao(index)} // Passa o índice da linha
                     />
                   </td>
-                  <td> {item.colaborador} </td>
-                  <td> {item.empresa} </td>
-                  <td> {item.prestacaoContas} </td>
-                  <td> {item.data} </td>
-                  <td>
+                  <td>{item.colaborador}</td>
+                  <td>{item.empresa}</td>
+                  <td>{item.prestacaoContas}</td>
+                  <td>{item.data}</td>
+                  <td className={styles.celulaMotivo}>
                     <img
                       src={Motivo}
                       alt="Ícone de motivo"
                       className={styles.iconeMotivo}
                     />
                   </td>
-                  <td> {item.tipoDespesa} </td>
-                  <td> {item.centroCusto} </td>
-                  <td> {item.ordemInterna} </td>
-                  <td> {item.divisao} </td>
-                  <td> {item.pep} </td>
-                  <td> {item.moeda} </td>
-                  <td> {item.distancia} </td>
-                  <td> {item.valorKm} </td>
-                  <td> {item.valorFaturado} </td>
-                  <td> {item.despesa} </td>
+                  <td>{item.tipoDespesa}</td>
+                  <td>{item.centroCusto}</td>
+                  <td>{item.ordemInterna}</td>
+                  <td>{item.divisao}</td>
+                  <td>{item.pep}</td>
+                  <td>{item.moeda}</td>
+                  <td>{item.distancia}</td>
+                  <td>{item.valorKm}</td>
+                  <td>{item.valorFaturado}</td>
+                  <td>{item.despesa}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+          {abrirModal && (
+            <div className={styles.containerModalExcluir}>
+              <div className={styles.modalExcluir}>
+                <h2>Deseja realmente excluir os dados dessa linha?</h2>
+                <div className={styles.Botoes}>
+                  <button type="button" onClick={fecharModalConfirmacao} className={styles.continuarEditando}>
+                    Continuar editando
+                  </button>
+                  <button type="button" onClick={excluirLinha} className={styles.excluirLinha}>
+                    Sim, excluir
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </main>
         <footer className={styles.footerSolicitacao}>
           <div className={styles.inputTotais}>

@@ -230,12 +230,18 @@ table, th, td {
 }
 
 .iconeLixeira:hover {
+    background-color: red;
     cursor: pointer;
     
 } 
 
 .iconeMotivo:hover{
     cursor: pointer;
+}
+
+.celulaMotivo:hover {
+    background-color: rgba(128, 128, 128, 0.226);
+
 }
 
 .tabela {
@@ -334,6 +340,7 @@ table, th, td {
 
 .containerModalExcluir {
     display: flex;
+    justify-content: space-between;
     background-color: #23282f4f;
     height: 100vh;
     width: 100vw;
@@ -346,7 +353,7 @@ table, th, td {
     .modalExcluir{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         position: fixed;
         top: 50%;
         left: 50%;
@@ -358,6 +365,59 @@ table, th, td {
         padding: 1.25rem;
         border-radius: 6px;
     }
+
+    .Botoes{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 5vh;
+        // border: solid red 2px;
+    }
+    .continuarEditando{
+        background-color: rgba(0, 26, 61, 1);
+        color: white;
+        border-radius: 6px;
+        width: 45%;
+        height: 5vh;
+        font-family: inter;
+        border: none;
+    }
+
+    .continuarEditando:hover{
+        background-color: rgb(0, 36, 83);
+        cursor: pointer;
+    }
+
+    .excluirLinha {
+        color: white;
+        border-radius: 6px;
+        width: 45%;
+        height: 5vh;
+        font-family: inter;
+        background-color: rgba(0, 190, 221, 1);
+        border: none;
+    }
+
+    .excluirLinha:hover {
+        background-color: rgba(0, 172, 199, 1);
+        cursor: pointer;
+    }
+    
+
+}
+
+.lixeiraAtiva {
+    display: flex;
+    justify-content: center;
+    border: none;
+    img {
+        
+    }
+    background-color: rgb(255, 0, 0); // Define o fundo vermelho
+    // border-radius: 50%; // Torna o ícone circular (opcional)
+    // padding: 5px; // Adiciona um espaçamento interno (opcional)
+    // transition: background-color 0.3s ease; // Adiciona uma transição suave
 }
 
 
