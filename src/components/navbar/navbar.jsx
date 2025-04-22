@@ -28,11 +28,12 @@ function NavBar() {
             <img className={styles.imgPerfil} src={Fechar} alt="Botão de abrir e fechar menu de navegação" />
           </button>
 
-          <section>
             <div className={styles.avatarPerfil}>
               <img src={Perfil} alt="Imagem miniatura de Perfil" />
               <span>Jonathan Moura</span>
             </div>
+          
+          <section>
             <div className={styles.divBotaoNavegavel}>
               <button onClick={() => navigate("/reembolsos")}>
                 <img src={Home} alt="Botão de Página Inicial" />
@@ -43,13 +44,13 @@ function NavBar() {
               <button onClick={() => navigate('/solicitacao')}>
                 <img src={Reembolso} alt="Botão de Solicitação de Reembolso" />
               </button>
-              <span className={styles.textoBotao}>Reembolso</span>
+              <span className={styles.textoBotao}>Reembolsos</span>
             </div>
             <div className={styles.divBotaoNavegavel}>
               <button>
                 <img src={Pesquisa} alt="Botão de pesquisar" />
               </button>
-              <span className={styles.textoBotao}>Análise</span>
+              <span className={styles.textoBotao}>Análises</span>
             </div>
             <div className={styles.divBotaoNavegavel}>
               <button>

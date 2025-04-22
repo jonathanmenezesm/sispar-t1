@@ -8,7 +8,8 @@ import Salvar from "../../assets/Solicitacao/+.png";
 import Deletar from "../../assets/Solicitacao/deletar.png";
 import Check from "../../assets/Solicitacao/check.png";
 import Delete from "../../assets/Solicitacao/x.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Api from "../../Services/Api.jsx"; // Importando a API para enviar os dados para o banco de dados
 
 function Solicitacao() {
   const [colaborador, setColaborador] = useState(""); // Estado para armazenar o nome do colaborador
@@ -50,46 +51,64 @@ function Solicitacao() {
       despesa,
     };
     setDadosReembolso(dadosReembolso.concat(novoReembolso)); // Adiciona o novo reembolso ao estado
-    console.log("Dados do reembolso:", dadosReembolso); // Exibe os dados do reembolso no console
+    limparCampos(); // Limpa os campos do formulário após o envio
+
   };
 
   //FUNÇÃO PARA LIMPAR OS CAMPOS DO FORMULÁRIO (INPUTS)
 
-  // const limparCampos = () => {
-  //     setColaborador(""),
-  //     setEmpresa(""),
-  //     setPrestacaoContas(""),
-  //     setDescricaoMotivo(""),
-  //     setData(""),
-  //     setTipoDespesa(""),
-  //     setCentroCusto(""),
-  //     setOrdemInterna(""),
-  //     setDivisao(""),
-  //     setPep(""),
-  //     setMoeda(""),
-  //     setDistancia(""),
-  //     setValorKm(""),
-  //     setValorFaturado(""),
-  //     setDespesa("")
-  // }
+  const limparCampos = () => {
+    setColaborador(""),
+      setEmpresa(""),
+      setPrestacaoContas(""),
+      setDescricaoMotivo(""),
+      setData(""),
+      setTipoDespesa(""),
+      setCentroCusto(""),
+      setOrdemInterna(""),
+      setDivisao(""),
+      setPep(""),
+      setMoeda(""),
+      setDistancia(""),
+      setValorKm(""),
+      setValorFaturado(""),
+      setDespesa("")
+  }
+
 
   //CRIAR UMA FUNÇÃO PARA ENVIAR OS DADOS PARA O BANCO DE DADOS
+  const [foiEnviado, setFoiEnviado] = useState(false); //Este estado serve para saber se o formulário foi enviado ou não.
+  // fim da função para enviar os dados para o banco de dados
 
-  // const [foiEnviado, setFoiEnviado] = useState(false); //criando estado
+  //------------- FUNÇÃO EnviarParaAnalise ----------------
+  const enviarParaAnalise = async () => {// aqui colocamos o que queremos 'tentar' fazer. 
+    // Async - é uma função assíncrona, ou seja, ela espera a resposta de uma operação assíncrona antes de continuar a execução do código.
+    try {
 
-  // const enviarParaAnalise = async () => {
-  //     try{// aqui colocamos o que queremos 'tentar' fazer
+      const response = await Api.post("/refunds/new", dadosReembolso); // aqui chamamos a API, passamos como parametros: (Rota, e o que quer enviar)
+      // "/refunds/new" é a rota que está no backend, e o que queremos enviar são os dados do reembolso que estão no estado 'dadosReembolso'
+      // O método post é utilizado para enviar dados para o servidor, e o await faz com que a execução do código aguarde a resposta da requisição.
+      console.log("Resposta da API", response); //fazemos um log no console para ver a resposta da API
+      alert("Reembolso solicitado com sucesso!")
+      setFoiEnviado(true)
+    }
+    catch (error) {// Se houver um erro, ele será capturado aqui
+      console.error("Erro ao enviar reembolso", error);
+      // alert("Erro ao enviar reembolso", error);
+    };
 
-  //     const response = await Api.post("/refunds/new", dadosReembolso); // aqui chamamos a API e enviamos os dados do reembolso
+  };
 
-  //     console.log("Resposta da API", response);
-  //     alert("Reembolso solicitado com sucesso!")
-  //     setFoiEnviado(true)
+  //------------- FIM FUNÇÃO EnviarParaAnalise ----------------
 
-  //     } catch(error){
-  //         console.log("Erro ao enviar reembolso", error);
-  //         alert("Erro ao solicitar reembolso, tente novamente mais tarde.")
-  //     }
+  useEffect(() => {
+    if (foiEnviado) { // Se o formulário foi enviado, chamamos a função enviarParaAnalise
+      setDadosReembolso([]); // Limpa os dados do reembolso após o envio
+      setFoiEnviado(false); // Reseta o estado foiEnviado para false
+    }
+  }, [foiEnviado])
+
+
 
   // função para excluir linha na tabela
   const [indiceExcluir, setIndiceExcluir] = useState(null); // Índice da linha a ser excluída
@@ -105,6 +124,7 @@ function Solicitacao() {
     setAbrirModal(false); // Fecha o modal
     setIndiceExcluir(null); // Reseta o índice
   }
+  //-- Fim função para excluir linha na tabela
 
   // Modal de confirmação de exclusão
   const [abrirModal, setAbrirModal] = useState(false);
@@ -116,7 +136,7 @@ function Solicitacao() {
   function fecharModalConfirmacao() {
     setAbrirModal(false);
   }
-// fim do modal de confirmação de exclusão
+  // fim do modal de confirmação de exclusão
 
   return (
     <div className={styles.layoutSolicitacaoReembolsos}>
@@ -164,7 +184,7 @@ function Solicitacao() {
               <div className={styles.inputContas}>
                 <label htmlFor=""> Nº Prest. Contas </label>
                 <input
-                  type="text"
+                  type="number"
                   name=""
                   id="nPrestacao"
                   value={prestacaoContas}
@@ -248,7 +268,7 @@ function Solicitacao() {
               <div className={styles.inputOrdem}>
                 <label htmlFor="">Ord. Int.</label>
                 <input
-                  type="text"
+                  type="number"
                   name=""
                   id=""
                   value={ordemInterna}
@@ -280,19 +300,26 @@ function Solicitacao() {
 
               <div className={styles.inputMoeda}>
                 <label htmlFor="">Moeda</label>
-                <input
+                <select
                   type="text"
                   name=""
                   id=""
                   value={moeda}
                   onChange={(e) => setMoeda(e.target.value)}
-                />
+                >
+
+                  <option value="Selecione"> </option>
+                  <option value="BRL">BRL - Real</option>
+                  <option value="USD">USD - Dolar</option>
+                  <option value="EUR">EUR - Euro</option>
+
+                </select>
               </div>
 
               <div className={styles.inputDistancia}>
                 <label htmlFor="">Dist / KM</label>
                 <input
-                  type="text"
+                  type="number"
                   name=""
                   id=""
                   value={distancia}
@@ -303,7 +330,7 @@ function Solicitacao() {
               <div className={styles.inputValorKm}>
                 <label htmlFor="">Valor / KM</label>
                 <input
-                  type="text"
+                  type="number"
                   name=""
                   id=""
                   value={valorKm}
@@ -314,7 +341,7 @@ function Solicitacao() {
               <div className={styles.ValorFaturado}>
                 <label htmlFor="">Val. Faturado</label>
                 <input
-                  type="text"
+                  type="number"
                   name=""
                   id=""
                   value={valorFaturado}
@@ -325,7 +352,7 @@ function Solicitacao() {
               <div className={styles.inputDespesa}>
                 <label htmlFor="">Despesa</label>
                 <input
-                  type="text"
+                  type="number"
                   name=""
                   id=""
                   value={despesa}
@@ -348,6 +375,7 @@ function Solicitacao() {
                   <img
                     src={Deletar}
                     alt="Botão para limpar o preenchimento do formulário"
+                    onClick={limparCampos}
                   />
                 </button>
               </div>
@@ -442,7 +470,7 @@ function Solicitacao() {
           </div>
 
           <div className={styles.FooterBotoes}>
-            <button className={styles.EnviarParaAnalise}>
+            <button className={styles.EnviarParaAnalise} onClick={enviarParaAnalise}>
               <img src={Check} alt="" />
               <p>Enviar para Análise</p>
             </button>

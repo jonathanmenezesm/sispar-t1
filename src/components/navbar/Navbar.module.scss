@@ -19,8 +19,7 @@
         height: 100vh;
     
     }
-    
-    
+      
     .FecharEAbrir {
         cursor: pointer;
         border-radius: 6px;
@@ -28,7 +27,7 @@
         width: 3vw;
         height: 5vh;
         background-color: #63758D;
-        transition: none;
+        // transition: none;
     }
     
     .FecharEAbrir:hover {
@@ -36,16 +35,43 @@
         transition: none;
         z-index: 10;
     }
+
+    .avatarPerfil {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 5vw; // Largura fixa para manter o espaço reservado
+        position: relative; // Necessário para posicionar o texto
+    
+        img {
+            width: 3vw; // Largura da imagem do avatar quando fechado
+            height: 5vh; // Altura da imagem do avatar quando fechado
+            border-radius: 50%; // Bordas arredondadas para o avatar
+            border: #464646 solid 0.3px; // Borda do avatar
+            transition: all 0.5s ease; // Transição suave para o tamanho
+        }
+    
+        span {
+            position: absolute; // Mantém o texto abaixo do avatar
+            bottom: -3vh; // Ajusta a posição do texto
+            font-family: inter;
+            color: #000; // Cor do texto
+            text-align: center; // Centraliza o texto
+            font-size: 1rem; // Tamanho da fonte
+            opacity: 0; // Oculta o texto inicialmente
+            transition: opacity 0.5s ease; // Transição suave para a visibilidade
+        }
+    }
     
     section {
         display: flex;
-        height: 45vh;
+        height: 40vh;
         width: 3vw;
         flex-direction: column;
         justify-content: space-between;
         align-items: start;
         // overflow: hidden;
-        transition: none;
+        // transition: none;
         // border: solid 0.3px black;
     
 
@@ -88,7 +114,7 @@
 
 //estilos para aberto e fechado
 .aberto {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 15%; // Quando estiver aberto
@@ -104,31 +130,28 @@
         opacity: 1; // Torna o texto visível
     }
 
-    .avatarPerfil{
+    .avatarPerfil {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 5vw;
+        height: 5vh;
+        position: relative;
+        left: 3vw;
+        transition: width 0.5s ease; // Transição suave para o tamanho
 
         img {
-            width: 3vw; // Largura da imagem do avatar
-            height: 5vh; // Altura da imagem do avatar
-            border-radius: 50%; // Bordas arredondadas para o avatar
-            border: #464646 solid 0.3px; // Borda do avatar
-            margin-bottom: 3px; // Espaço entre o avatar e o texto
+            width: 3vw; // Aumenta o tamanho do avatar quando aberto
+            height: 5vh; // Aumenta a altura do avatar quando aberto
         }
-
-
+    
         span {
+            display: inline;
+            opacity: 1; // Torna o texto visível quando aberto
+            width: 7vw; // Largura do texto
             font-family: inter;
-            color: #000; // Cor do texto
-            text-align: center; // Centraliza o texto
-            font-size: 0.9rem; // Tamanho da fonte
         }
-        
     }
-
 
 }
 
