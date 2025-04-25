@@ -1,8 +1,6 @@
 # SISPAR - Sistema de Reembolsos
 
-O **SISPAR** é um sistema simples de controle de reembolsos, criado para facilitar o registro, consulta e acompanhamento de solicitações por parte de colaboradores e administradores. Este desafio foi proposto pela parceria da Vai na Web com a Wilson Sons através do programa Be Digital. São 7 meses de curso, abordando requisitos do que se espera de um  desenvolvedor full-stack. 
-
-> Este projeto está em desenvolvimento e foi iniciado como um desafio de curto prazo. Com o tempo, está evoluindo para uma aplicação web completa com front-end em React e back-end em Flask.
+O **SISPAR** é um sistema simples e funcional voltado para o controle de reembolsos. Criado como um desafio técnico, o projeto evoluiu para um sistema web completo, com front-end em React e back-end em Flask, oferecendo uma interface intuitiva e uma API organizada para gerenciamento das solicitações.
 
 ---
 
@@ -18,10 +16,13 @@ O **SISPAR** é um sistema simples de controle de reembolsos, criado para facili
 ### Back-end
 
 - **Python 3.11+**
-- **Flask** (framework web leve e rápido)
+- **Flask**
 - **Flask-CORS**
-- **Flask-SQLAlchemy** (ORM para integração com o banco de dados)
-- **SQLite** (padrão, mas podendo evoluir para PostgreSQL)
+- **Flask-SQLAlchemy**
+- **SQLite** (pode ser substituído por PostgreSQL futuramente)
+
+> O código-fonte do back-end está disponível em repositório separado:  
+> 🔗 [API-T1 - Back-end do SISPAR](https://github.com/jonathanmenezesm/API-T1)
 
 ---
 
@@ -29,19 +30,15 @@ O **SISPAR** é um sistema simples de controle de reembolsos, criado para facili
 
 ```
 sispar-t1/
-├── backend/
-│   ├── app.py
-│   ├── models/
-│   ├── controllers/
-│   ├── routes/
-│   └── database/
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── App.jsx
-│   └── public/
-└── README.md
+├── front/
+│   ├── public/
+│   └── src/
+│       ├── Services/
+│       ├── assets/
+│       └── components/
+└── backend/  → Repositório separado: https://github.com/jonathanmenezesm/API-T1
+    ├── controller/
+    └── model/
 ```
 
 ---
@@ -52,56 +49,65 @@ sispar-t1/
 
 - Python 3.11+
 - Node.js
-- Gerenciador de pacotes (pip para o back-end, npm para o front-end)
+- Git
+- pip (Python)
+- npm (Node.js)
 
 ---
 
-### 1. Clonar o repositório
+### 1. Clonar os repositórios
 
 ```bash
 git clone https://github.com/jonathanmenezesm/sispar-t1.git
-cd sispar-t1
+git clone https://github.com/jonathanmenezesm/API-T1.git
 ```
 
 ---
 
-### 2. Back-end (Flask)
+### 2. Executar o Back-end (Flask)
 
 ```bash
-cd backend
+cd API-T1
 python -m venv venv
-source venv/bin/activate  # ou venv\Scripts\activate no Windows
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
 pip install -r requirements.txt
-python app.py
+python run.py
 ```
 
-> O servidor Flask será iniciado em `http://localhost:5000`.
+> O servidor será iniciado em `http://localhost:5000`
 
 ---
 
-### 3. Front-end (React)
+### 3. Executar o Front-end (React)
 
 ```bash
-cd frontend
+cd sispar-t1/front
 npm install
 npm run dev
 ```
 
-> A aplicação React será servida em `http://localhost:5173`.
+> A aplicação estará disponível em `http://localhost:5173`
 
 ---
 
-## ✅ Funcionalidades (parciais)
+## ✅ Funcionalidades (em desenvolvimento)
 
-- Login com validação simples
-- Cadastro e listagem de reembolsos
-- Interface de usuário responsiva
-- Integração entre front e back via API REST
+- [x] Tela de login
+- [x] Cadastro de solicitações de reembolso
+- [x] Listagem de solicitações
+- [ ] Autenticação e autorização com controle de acesso
+- [ ] Filtros por data/status
+- [ ] Dashboard administrativo
 
 ---
 
-## 📌 Observações
+## 🤝 Contribuição
 
-- O projeto ainda está em fase de estruturação e melhorias são esperadas.
-- Sugestões, críticas e contribuições são muito bem-vindas!
+Contribuições são muito bem-vindas! Se quiser sugerir melhorias ou corrigir algo, sinta-se à vontade para abrir uma [issue](https://github.com/jonathanmenezesm/sispar-t1/issues) ou um pull request.
 
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
