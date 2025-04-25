@@ -1,20 +1,107 @@
-Projeto SISPAR, é um sistema de reembolsos desenvolvido em React.js. 
+# SISPAR - Sistema de Reembolsos
 
-O desafio feito submetido a um prazo, relativamente curto, tendo em vista que era meu primeiro contato com a tecnologia. Porém, como já tenho um certo domínio da estruturação de sites, só tive que me adaptar a sintaxe do React, que por sinal é simples. Auxiliado pelo Vite, o desenvolvimento se tornou mais simples e rápido.
-Algumas funcionalidades implementadas:
+O **SISPAR** é um sistema simples de controle de reembolsos, criado para facilitar o registro, consulta e acompanhamento de solicitações por parte de colaboradores e administradores. Este desafio foi proposto pela parceria da Vai na Web com a Wilson Sons através do programa Be Digital. São 7 meses de curso, abordando requisitos do que se espera de um  desenvolvedor full-stack. 
 
-✅ Tela de Login com redirecionamento para o dashboard
+> Este projeto está em desenvolvimento e foi iniciado como um desafio de curto prazo. Com o tempo, está evoluindo para uma aplicação web completa com front-end em React e back-end em Flask.
 
-✅ Tela de Reembolsos com acesso a solicitações anteriores
+---
 
-✅ Formulário de Solicitação de Reembolsos com armazenamento temporário dos dados
+## 🚀 Tecnologias Utilizadas
 
-✅ NavBar com navegação intuitiva e funcionalidade de menu hambúrguer
+### Front-end
 
-As tecnologias utilizadas até o momento:
-•	HTML
-•	SCSS
-•	React.js + Vite
-•	React Router
+- **React.js** com **Vite**
+- **React Router DOM**
+- **SCSS**
+- **JavaScript (ES6+)**
 
-Agora estou focado em aprender o Back-End, para tornar a aplicação completa!
+### Back-end
+
+- **Python 3.11+**
+- **Flask** (framework web leve e rápido)
+- **Flask-CORS**
+- **Flask-SQLAlchemy** (ORM para integração com o banco de dados)
+- **SQLite** (padrão, mas podendo evoluir para PostgreSQL)
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+sispar-t1/
+├── backend/
+│   ├── app.py
+│   ├── models/
+│   ├── controllers/
+│   ├── routes/
+│   └── database/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── App.jsx
+│   └── public/
+└── README.md
+```
+
+---
+
+## 🔧 Como Executar o Projeto
+
+### Pré-requisitos
+
+- Python 3.11+
+- Node.js
+- Gerenciador de pacotes (pip para o back-end, npm para o front-end)
+
+---
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/jonathanmenezesm/sispar-t1.git
+cd sispar-t1
+```
+
+---
+
+### 2. Back-end (Flask)
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # ou venv\Scripts\activate no Windows
+pip install -r requirements.txt
+python app.py
+```
+
+> O servidor Flask será iniciado em `http://localhost:5000`.
+
+---
+
+### 3. Front-end (React)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+> A aplicação React será servida em `http://localhost:5173`.
+
+---
+
+## ✅ Funcionalidades (parciais)
+
+- Login com validação simples
+- Cadastro e listagem de reembolsos
+- Interface de usuário responsiva
+- Integração entre front e back via API REST
+
+---
+
+## 📌 Observações
+
+- O projeto ainda está em fase de estruturação e melhorias são esperadas.
+- Sugestões, críticas e contribuições são muito bem-vindas!
+
