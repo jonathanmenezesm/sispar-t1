@@ -85,7 +85,7 @@ function Solicitacao() {
     // Async - é uma função assíncrona, ou seja, ela espera a resposta de uma operação assíncrona antes de continuar a execução do código.
     try {
 
-      const response = await Api.post("/refunds/new", dadosReembolso); // aqui chamamos a API, passamos como parametros: (Rota, e o que quer enviar)
+      const response = await Api.post("/reembolso/refunds/new", dadosReembolso); // aqui chamamos a API, passamos como parametros: (Rota, e o que quer enviar)
       // "/refunds/new" é a rota que está no backend, e o que queremos enviar são os dados do reembolso que estão no estado 'dadosReembolso'
       // O método post é utilizado para enviar dados para o servidor, e o await faz com que a execução do código aguarde a resposta da requisição.
       console.log("Resposta da API", response); //fazemos um log no console para ver a resposta da API
@@ -99,6 +99,37 @@ function Solicitacao() {
 
   };
 
+  // ----- FUNÇÃO COPILOT, APÓS USO, DESCOMENTAR FUNÇÃO ACIMA ----
+  // const enviarParaAnalise = async () => {
+  //   try {
+  //     const response = await Api.post("http://localhost:5000/reembolso/refunds/new", dadosReembolso, {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     console.log("Resposta da API", response);
+  //     alert("Reembolso solicitado com sucesso!");
+  //   } catch (error) {
+  //     console.error("Erro ao enviar reembolso", error);
+  //     alert("Erro ao enviar reembolso. Verifique os dados e tente novamente.");
+  //   }
+  // };
+  // const enviarParaAnalise = async () => {
+  //   try {
+  //     const response = await Api.post("http://localhost:5000/reembolso/refunds/new)", dadosReembolso, {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     console.log("Resposta da API", response);
+  //     alert("Reembolso solicitado com sucesso!");
+  //   } catch (error) {
+  //     console.error("Erro ao enviar reembolso", error);
+  //     alert("Erro ao enviar reembolso. Verifique os dados e tente novamente.");
+  //   }
+  // };
+  // ----- FIM FUNÇÃO COPILOT ----
+
   //------------- FIM FUNÇÃO EnviarParaAnalise ----------------
 
   useEffect(() => {
@@ -107,8 +138,6 @@ function Solicitacao() {
       setFoiEnviado(false); // Reseta o estado foiEnviado para false
     }
   }, [foiEnviado])
-
-
 
   // função para excluir linha na tabela
   const [indiceExcluir, setIndiceExcluir] = useState(null); // Índice da linha a ser excluída
@@ -484,4 +513,4 @@ function Solicitacao() {
     </div>
   );
 }
-export default Solicitacao;
+export default Solicitacao; 
