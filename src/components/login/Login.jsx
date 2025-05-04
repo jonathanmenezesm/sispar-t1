@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Capa from "../../assets/Tela Login/tela-login.png";
 import Logo from "../../assets/Tela Login/logo-ws.png";
 import styles from './Login.module.scss';
-import api from "../../services/Api.jsx";
+import Api from "../../Services/Api.jsx";
 import { useState } from "react";
 
 function Login() {
@@ -20,7 +20,7 @@ const [senha, setSenha] = useState("");
 const fazerLogin = async (e) => {
   e.preventDefault(); //previne o comportamento padrão do formulário de recarregar a página
   try{
-    const resposta = await api.post("/colaborador/login", { 
+    const resposta = await Api.post("/colaborador/login", { 
       "email": email, 
       "senha": senha 
     }) //fazendo a requisição POST para a API com o email e senha do usuário
