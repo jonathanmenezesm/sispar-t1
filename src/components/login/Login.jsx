@@ -13,8 +13,8 @@ const IrParaReembolso = () => {
   navigate('/reembolsos');
 }
 
-const IrParaRegistrar = () => {
-navigate('/registrar');
+const IrParaCadastrar = () => {
+navigate('/cadastrar');
 }
 
 //iniciando os estados para email e senha
@@ -97,7 +97,7 @@ const fazerLogin = async (e) => {
           
           <button 
           className={styles.botaoCriarConta} 
-          onClick={IrParaRegistrar}
+          onClick={IrParaCadastrar}
           > 
             Criar conta
           </button>

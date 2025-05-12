@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
-import styles from './Registrar.module.scss';
+import styles from "./Cadastrar.module.scss";
 import Logo from "../../assets/Tela Login/logo-ws.png";
 import { useNavigate } from 'react-router-dom';
-
 
 export default function Register() {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ export default function Register() {
 
   const IrParaLogin = () => {
     navigate('/');
-  }
+  };
 
   const cadastrarColaborador = async e => {
     e.preventDefault();
@@ -38,7 +37,7 @@ export default function Register() {
 
   return (
     <div className={styles.registerPage}>
-      <form onSubmit={handleSubmit} className={styles.registerForm}>
+      <form onSubmit={cadastrarColaborador} className={styles.registerForm}>
         <div className={styles.header}>
           <img src={Logo} alt="Logo da Wilson Sons" className={styles.logo} />
           <div className={styles.textos}>
@@ -47,7 +46,6 @@ export default function Register() {
           </div>
         </div>
         
-
         <label>
           Nome
           <input type="text" name="nome" value={formData.nome} onChange={handleChange} required />
@@ -73,7 +71,7 @@ export default function Register() {
           <input type="number" name="salario" value={formData.salario} onChange={handleChange} required />
         </label>
 
-        <button onClick={cadastrarColaborador}>Registrar</button>
+        <button type="submit">Registrar</button>
 
         <button
           type="button"
