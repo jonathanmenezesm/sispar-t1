@@ -3,11 +3,13 @@ import axios from 'axios';
 import styles from './Registrar.module.scss';
 import Logo from "../../assets/Tela Login/logo-ws.png";
 import { useNavigate } from 'react-router-dom';
+import Api from "../../Services/Api.jsx";
 
 
 export default function Register() {
   const navigate = useNavigate();
   
+
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -28,7 +30,7 @@ export default function Register() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('https://api-t1-8fja.onrender.com', formData); // URL da API
+      await Api.post('/colaborador/cadastrar', formData); // URL da API
       alert('Colaborador registrado com sucesso!');
     } catch (error) {
       console.error('Erro ao registrar colaborador:', error);
