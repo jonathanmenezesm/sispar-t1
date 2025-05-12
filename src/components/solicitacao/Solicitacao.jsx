@@ -81,23 +81,24 @@ function Solicitacao() {
   // fim da função para enviar os dados para o banco de dados
 
   //------------- FUNÇÃO EnviarParaAnalise ----------------
-  const enviarParaAnalise = async () => {// aqui colocamos o que queremos 'tentar' fazer. 
-    // Async - é uma função assíncrona, ou seja, ela espera a resposta de uma operação assíncrona antes de continuar a execução do código.
-    try {
+  const enviarParaAnalise = async () => {
+  const colaboradorId = localStorage.getItem("colaboradorId");
 
-      const response = await Api.post("/reembolso/refunds/new", dadosReembolso); // aqui chamamos a API, passamos como parametros: (Rota, e o que quer enviar)
-      // "/refunds/new" é a rota que está no backend, e o que queremos enviar são os dados do reembolso que estão no estado 'dadosReembolso'
-      // O método post é utilizado para enviar dados para o servidor, e o await faz com que a execução do código aguarde a resposta da requisição.
-      console.log("Resposta da API", response); //fazemos um log no console para ver a resposta da API
-      alert("Reembolso solicitado com sucesso!")
-      setFoiEnviado(true)
-    }
-    catch (error) {// Se houver um erro, ele será capturado aqui
-      console.error("Erro ao enviar reembolso", error);
-      // alert("Erro ao enviar reembolso", error);
-    };
+  // Adiciona o ID do colaborador a cada item
+  const dadosComId = dadosReembolso.map(item => ({
+    ...item,
+    colaborador_id: colaboradorId,
+  }));
 
-  };
+  try {
+    const response = await Api.post("/reembolso/refunds/new", dadosComId);
+    alert("Reembolso solicitado com sucesso!");
+    setFoiEnviado(true);
+  } catch (error) {
+    console.error("Erro ao enviar reembolso", error);
+    alert("Erro ao enviar reembolso.");
+  }
+};
 
   // ----- FUNÇÃO COPILOT, APÓS USO, DESCOMENTAR FUNÇÃO ACIMA ----
   // const enviarParaAnalise = async () => {

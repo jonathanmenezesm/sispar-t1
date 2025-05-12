@@ -22,23 +22,31 @@ const [email, setEmail] = useState("");
 const [senha, setSenha] = useState("");
 
 const fazerLogin = async (e) => {
-  e.preventDefault(); //previne o comportamento padrão do formulário de recarregar a página
-  try{
+  e.preventDefault();
+  try {
+    // 1. Login
     const resposta = await Api.post("/colaborador/login", { 
-      "email": email, 
-      "senha": senha 
-    }) //fazendo a requisição POST para a API com o email e senha do usuário
+      email, 
+      senha 
+    });//fazendo a requisição POST para a API com o email e senha do usuário
 
-    console.log(resposta.data); //exibe a resposta da API no console
-    alert("Login realizado com sucesso!"); //exibe um alerta de sucesso
-    IrParaReembolso(); //chama a função para redirecionar o usuário para a página de reembolso
+    alert("Login realizado com sucesso!");
 
+    // 2. Buscar ID do colaborador no banco de dados
+    const respostaId = await Api.post("/colaborador/buscar_id", { email });
+    const idColaborador = respostaId.data.id_colaborador;
+
+    // 3. Armazenar localmente o id do colaborador
+    localStorage.setItem("idColaborador", idColaborador);
+
+    // 4. Redirecionar
+    IrParaReembolso();
   } catch (error) {
-    console.error("Erro ao fazer login:", error)
-    alert("Erro ao fazer login. Verifique suas credenciais e tente novamente.")
+    console.error("Erro ao fazer login:", error);
+    alert("Erro ao fazer login. Verifique suas credenciais e tente novamente.");
   }
-
 }
+
 
   return (
     <main className={styles.mainLogin}>
