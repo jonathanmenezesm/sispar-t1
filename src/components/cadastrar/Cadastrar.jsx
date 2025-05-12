@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import axios from 'axios';
 import styles from "./Cadastrar.module.scss";
 import Logo from "../../assets/Tela Login/logo-ws.png";
 import { useNavigate } from 'react-router-dom';
+import Api from "../../Services/Api.jsx";
 
 export default function Register() {
   const navigate = useNavigate();
-  
+
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -27,7 +27,7 @@ export default function Register() {
   const cadastrarColaborador = async e => {
     e.preventDefault();
     try {
-      await axios.post("/colaborador/cadastrar", formData); // URL da API
+      await Api.post("/colaborador/cadastrar", formData); // Certifique-se de que a URL está correta
       alert('Colaborador registrado com sucesso!');
     } catch (error) {
       console.error('Erro ao registrar colaborador:', error);
@@ -45,7 +45,7 @@ export default function Register() {
             <p>Obtenha acesso ao Portal SISPAR</p>
           </div>
         </div>
-        
+
         <label>
           Nome
           <input type="text" name="nome" value={formData.nome} onChange={handleChange} required />
