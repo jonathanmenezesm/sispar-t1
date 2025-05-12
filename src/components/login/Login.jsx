@@ -88,12 +88,17 @@ const fazerLogin = async (e) => {
           
           <div className={styles.divBotoes}>
           
-          <button className={styles.botaoEntrar} 
-          onClick={fazerLogin}> 
+          <button 
+          className={styles.botaoEntrar} 
+          onClick={fazerLogin}
+          > 
             Entrar
           </button>
           
-          <button className={styles.botaoCriarConta} onClick={IrParaRegistrar}> 
+          <button 
+          className={styles.botaoCriarConta} 
+          onClick={IrParaRegistrar}
+          > 
             Criar conta
           </button>
 

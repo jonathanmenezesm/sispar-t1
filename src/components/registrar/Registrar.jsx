@@ -22,13 +22,13 @@ export default function Register() {
   };
 
   const IrParaLogin = () => {
-  navigate('/');
-}
+    navigate('/');
+  }
 
-  const handleSubmit = async e => {
+  const cadastrarColaborador = async e => {
     e.preventDefault();
     try {
-      await axios.post('https://api-t1-8fja.onrender.com', formData); // URL da API
+      await axios.post("/colaborador/cadastrar", formData); // URL da API
       alert('Colaborador registrado com sucesso!');
     } catch (error) {
       console.error('Erro ao registrar colaborador:', error);
@@ -73,7 +73,7 @@ export default function Register() {
           <input type="number" name="salario" value={formData.salario} onChange={handleChange} required />
         </label>
 
-        <button type="submit">Registrar</button>
+        <button onClick={cadastrarColaborador}>Registrar</button>
 
         <button
           type="button"
