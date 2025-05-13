@@ -20,6 +20,10 @@ function Reembolsos() {
     navigate('/solicitacao');
 
   }
+  const IrParaAnalises = () => {
+    navigate('/analises');
+
+  }
 
   return (
     <div className={styles.layout}>
@@ -47,7 +51,7 @@ function Reembolsos() {
                 <h3> Solicitar Reembolso </h3>
               </article>
 
-              <article className={styles.CardAnalise}>
+              <article className={styles.CardAnalise} onClick={IrParaAnalises}>
                 <img src={Analises} alt="icone para analises" />
                 <h3> Verificar análises </h3>
               </article>
