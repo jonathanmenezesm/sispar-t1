@@ -10,6 +10,8 @@ import Check from "../../assets/Solicitacao/check.png";
 import Delete from "../../assets/Solicitacao/x.png";
 import { useState, useEffect } from "react";
 import Api from "../../Services/Api.jsx"; // Importando a API para enviar os dados para o banco de dados
+import { useNavigate } from 'react-router-dom';
+
 
 function Solicitacao() {
   const [colaborador, setColaborador] = useState(""); // Estado para armazenar o nome do colaborador
@@ -29,6 +31,24 @@ function Solicitacao() {
   const [despesa, setDespesa] = useState(""); // Estado para armazenar a despesa
 
   const [dadosReembolso, setDadosReembolso] = useState([]); // Estado para armazenar os dados do reembolso
+
+
+  // ---- função de navegação ----
+  const navigate = useNavigate();
+
+  const IrParaReembolso = () => {
+    navigate('/reembolsos');
+  }
+
+  const IrParaAnalises = () => {
+    navigate('/analises');
+
+  }
+  // ---- FIM função de navegação ----
+  // MODAL QUE ABRE A DESCRIÇÃO DO MOTIVO
+  const [modalMotivoAberto, setModalMotivoAberto] = useState(false);
+  const [motivoSelecionado, setMotivoSelecionado] = useState('');
+  // FIM DO MODAL QUE ABRE A DESCRIÇÃO DO MOTIVO
 
   //FUNÇÃO PARA ADICIONAR OS DADOS DO FORMULÁRIO NO ESTADO 'dadosReembolso'
 
@@ -82,23 +102,23 @@ function Solicitacao() {
 
   //------------- FUNÇÃO EnviarParaAnalise ----------------
   const enviarParaAnalise = async () => {
-  const colaboradorId = localStorage.getItem("colaboradorId");
+    const colaboradorId = localStorage.getItem("colaboradorId");
 
-  // Adiciona o ID do colaborador a cada item
-  const dadosComId = dadosReembolso.map(item => ({
-    ...item,
-    colaborador_id: colaboradorId,
-  }));
+    // Adiciona o ID do colaborador a cada item
+    const dadosComId = dadosReembolso.map(item => ({
+      ...item,
+      colaborador_id: colaboradorId,
+    }));
 
-  try {
-    const response = await Api.post("/reembolso/refunds/new", dadosComId);
-    alert("Reembolso solicitado com sucesso!");
-    setFoiEnviado(true);
-  } catch (error) {
-    console.error("Erro ao enviar reembolso", error);
-    alert("Erro ao enviar reembolso.");
-  }
-};
+    try {
+      const response = await Api.post("/reembolso/refunds/new", dadosComId);
+      alert("Reembolso solicitado com sucesso!");
+      setFoiEnviado(true);
+    } catch (error) {
+      console.error("Erro ao enviar reembolso", error);
+      alert("Erro ao enviar reembolso.");
+    }
+  };
 
   // ----- FUNÇÃO COPILOT, APÓS USO, DESCOMENTAR FUNÇÃO ACIMA ----
   // const enviarParaAnalise = async () => {
@@ -168,6 +188,18 @@ function Solicitacao() {
   }
   // fim do modal de confirmação de exclusão
 
+  // Modal para exibir o motivo
+  function abrirModalMotivo(motivo) {
+    setMotivoSelecionado(motivo);
+    setModalMotivoAberto(true);
+  }
+
+  function fecharModalMotivo() {
+    setModalMotivoAberto(false);
+    setMotivoSelecionado('');
+  }
+  // Fim do modal para exibir o motivo
+
   return (
     <div className={styles.layoutSolicitacaoReembolsos}>
       <NavBar />
@@ -175,9 +207,9 @@ function Solicitacao() {
         <div className={styles.boxHeader}>
           <header>
             <div className={styles.HeaderObjetos}>
-              <img src={Home} alt="" />
+              <img src={Home} alt="" onClick={IrParaReembolso} style={{ cursor: "pointer" }} />
               <img src={Seta} alt="" />
-              <p>Reembolsos</p>
+              <p onClick={IrParaReembolso} style={{ cursor: "pointer" }}>Reembolsos</p>
               <img src={Seta} alt="" />
               <p>Solicitação de Reembolsos</p>
             </div>
@@ -454,6 +486,8 @@ function Solicitacao() {
                       src={Motivo}
                       alt="Ícone de motivo"
                       className={styles.iconeMotivo}
+                      style={{ cursor: "pointer" }}
+                      onClick={() => abrirModalMotivo(item.descricaoMotivo)}
                     />
                   </td>
                   <td>{item.tipoDespesa}</td>
@@ -470,6 +504,7 @@ function Solicitacao() {
               ))}
             </tbody>
           </table>
+          {/* Modal para confirmação de exclusão */}
           {abrirModal && (
             <div className={styles.containerModalExcluir}>
               <div className={styles.modalExcluir}>
@@ -485,6 +520,19 @@ function Solicitacao() {
               </div>
             </div>
           )}
+          {/* Fim do modal de confirmação de exclusão */}
+          
+          {/* Modal para exibir o motivo */}
+          {modalMotivoAberto && (
+            <div className={styles.modalOverlay}>
+              <div className={styles.modalMotivo}>
+                <h3>Motivo do Reembolso:</h3>
+                <p>{motivoSelecionado}</p>
+                <button className={styles.botaoFecharModal} onClick={fecharModalMotivo}>X</button>
+              </div>
+            </div>
+          )}
+          {/* Fim do modal para exibir o motivo */}
         </main>
         <footer className={styles.footerSolicitacao}>
           <div className={styles.inputTotais}>

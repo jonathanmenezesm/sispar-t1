@@ -182,7 +182,7 @@ label {
             border: none;
             border-radius: 6px;
         }
-        
+
         .BotaoApagar {
             display: flex;
             justify-content: center;
@@ -194,17 +194,17 @@ label {
             height: 4vh;
             color: white;
         }
-        
+
         .BotaoSalvar:hover {
             background-color: rgb(0, 36, 83);
             cursor: pointer;
-            
+
         }
 
         .BotaoApagar:hover {
             background-color: rgba(0, 172, 199, 1);
             cursor: pointer;
-        }        
+        }
     }
 
 }
@@ -224,7 +224,9 @@ th {
     font-size: 1rem;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: solid #23282F 1px;
     text-align: center;
 }
@@ -232,10 +234,10 @@ table, th, td {
 .iconeLixeira:hover {
     background-color: red;
     cursor: pointer;
-    
-} 
 
-.iconeMotivo:hover{
+}
+
+.iconeMotivo:hover {
     cursor: pointer;
 }
 
@@ -260,20 +262,20 @@ table, th, td {
     bottom: 0;
     right: 0;
 
-    
+
     .inputTotais {
         display: flex;
         flex-wrap: wrap;
         width: 20%;
         gap: 10px;
         // border: solid purple;
-    
-        input{
+
+        input {
             display: flex;
             height: 4vh;
             padding-left: 5%;
         }
-    
+
         .TotalFaturado {
             display: flex;
             flex-direction: column;
@@ -282,7 +284,7 @@ table, th, td {
             height: 9vh;
             // border: solid blue;
         }
-        
+
         .TotalDespesa {
             display: flex;
             flex-direction: column;
@@ -292,6 +294,7 @@ table, th, td {
             // border: solid green;
         }
     }
+
     .FooterBotoes {
         display: flex;
         justify-content: space-evenly;
@@ -306,17 +309,17 @@ table, th, td {
             background-color: rgba(0, 26, 61, 1);
             border-radius: 6px;
             width: 47%;
-            color: rgba(255, 255, 255, 1);   
+            color: rgba(255, 255, 255, 1);
             gap: 8px;
             font-weight: 700;
             border: none;
         }
-        
+
         .EnviarParaAnalise:hover {
             background-color: rgb(0, 36, 83);
             cursor: pointer;
         }
-        
+
         .CancelarSolicitacao {
             display: flex;
             justify-content: center;
@@ -324,17 +327,17 @@ table, th, td {
             background-color: rgba(166, 11, 47, 1);
             border-radius: 6px;
             width: 47%;
-            color: rgba(255, 255, 255, 1);   
+            color: rgba(255, 255, 255, 1);
             gap: 8px;
             font-weight: 700;
             border: none;
         }
-        
+
         .CancelarSolicitacao:hover {
             background-color: rgb(185, 25, 62);
             cursor: pointer;
         }
-    
+
     }
 }
 
@@ -349,8 +352,8 @@ table, th, td {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    
-    .modalExcluir{
+
+    .modalExcluir {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -366,7 +369,7 @@ table, th, td {
         border-radius: 6px;
     }
 
-    .Botoes{
+    .Botoes {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -374,7 +377,8 @@ table, th, td {
         height: 5vh;
         // border: solid red 2px;
     }
-    .continuarEditando{
+
+    .continuarEditando {
         background-color: rgba(0, 26, 61, 1);
         color: white;
         border-radius: 6px;
@@ -384,7 +388,7 @@ table, th, td {
         border: none;
     }
 
-    .continuarEditando:hover{
+    .continuarEditando:hover {
         background-color: rgb(0, 36, 83);
         cursor: pointer;
     }
@@ -403,7 +407,7 @@ table, th, td {
         background-color: rgba(0, 172, 199, 1);
         cursor: pointer;
     }
-    
+
 
 }
 
@@ -417,4 +421,56 @@ table, th, td {
     // transition: background-color 0.3s ease; // Adiciona uma transição suave
 }
 
+//  INICIO: MODAL MOTIVO
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 
+    .modalMotivo {
+        position: relative;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        min-width: 300px;
+        max-width: 90vw;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .botaoFecharModal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 2vw;
+        height: 4vh;
+        background: rgb(255, 255, 255);
+        border-radius: 100%;
+        border: rgb(0, 0, 0) solid 1px;
+        color: black;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bolder;
+        position: absolute;
+        top: -2vh;
+        right: -2vh;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba(221, 0, 0, 0.897);
+            color: white;
+        }
+
+    }
+}
+
+//   FIM DO MODAL MOTIVO

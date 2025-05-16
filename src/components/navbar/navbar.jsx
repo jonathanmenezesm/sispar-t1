@@ -11,7 +11,15 @@ import styles from './Navbar.module.scss';
 
 function NavBar() {
   //useNavigate se refere as rotas de navegação nas páginas.
+  // -- função de navegação ---
   const navigate = useNavigate();
+
+  const IrParaAnalises = () => {
+    navigate('/analises');
+
+  }
+  // --- fim da função de navegação ---
+
   //useState para trocar de um estado para outro. Neste caso usado para alterar estilo da navbar.
   const [isOpen, setIsOpen] = useState(false); // Estado para abrir/fechar a sidebar
   const toggleSidebar = () => {
@@ -47,7 +55,7 @@ function NavBar() {
               <span className={styles.textoBotao}>Reembolsos</span>
             </div>
             <div className={styles.divBotaoNavegavel}>
-              <button>
+              <button onClick={IrParaAnalises}>
                 <img src={Pesquisa} alt="Botão de pesquisar" />
               </button>
               <span className={styles.textoBotao}>Análises</span>
